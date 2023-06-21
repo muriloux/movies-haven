@@ -1,0 +1,26 @@
+<table>
+  <tr class="text-left">
+    <th>Name</th>
+    <th>Site</th>
+    <th>New Movies</th>
+    <th>Last Update</th>
+    <th>Reviews</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let curator of curators">
+    <td [id]="'curator_' + curator.id">{{ curator.name }}</td>
+    <td>
+      <a [href]="curator.url">{{ curator.url }}</a>
+    </td>
+    <td>
+      <tr *ngFor="let movie of curator.new_movies">
+        {{
+          movie
+        }}
+      </tr>
+    </td>
+    <td>{{ curator.last_update }}</td>
+    <td>{{ curator.reviews }}</td>
+    <td>{{ curator.status }}</td>
+  </tr>
+</table>
