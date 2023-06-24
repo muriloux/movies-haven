@@ -3,14 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CuratorsTableComponent } from './components/curators/table/table.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { RadioPlayerComponent } from './components/nav-bar/radio-player/radio-player.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CuratorsTableComponent
+    CuratorsTableComponent,
+    NavBarComponent,
+    RadioPlayerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' })
   ],
   providers: [],
   bootstrap: [AppComponent]

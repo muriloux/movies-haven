@@ -1,26 +1,30 @@
-<table>
-  <tr class="text-left">
-    <th>Name</th>
-    <th>Site</th>
-    <th>New Movies</th>
-    <th>Last Update</th>
-    <th>Reviews</th>
-    <th>Status</th>
+<table class="border mx-auto">
+  <tr class="text-center">
+    <th class="border-r p-2">Name</th>
+    <th class="border-r p-2">New Movies</th>
+    <th class="border-r p-2">Last Update</th>
+    <th class="border-r p-2">Reviews</th>
+    <th class="border-r p-2">Status</th>
   </tr>
-  <tr *ngFor="let curator of curators">
-    <td [id]="'curator_' + curator.id">{{ curator.name }}</td>
-    <td>
-      <a [href]="curator.url">{{ curator.url }}</a>
+  <tr *ngFor="let curator of curators" class="content-center">
+    <td
+      class="flex justify-start items-center border-t p-2"
+      [id]="'curator_' + curator.id"
+    >
+      <a
+        class="font-semibold hover:underline"
+        target="_blank"
+        [href]="curator.url"
+        >{{ curator.name }}</a
+      >
     </td>
-    <td>
-      <tr *ngFor="let movie of curator.new_movies">
-        {{
-          movie
-        }}
-      </tr>
+    <td class="border-l border-t p-2">
+      <ul>
+        <li *ngFor="let movie of curator.new_movies">{{ movie }}</li>
+      </ul>
     </td>
-    <td>{{ curator.last_update }}</td>
-    <td>{{ curator.reviews }}</td>
-    <td>{{ curator.status }}</td>
+    <td class="border-l border-t p-2">{{ curator.last_update }}</td>
+    <td class="border-l border-t p-2">{{ curator.reviews ? "Yes" : "No" }}</td>
+    <td class="border-l border-t p-2">{{ curator.status }}</td>
   </tr>
 </table>
