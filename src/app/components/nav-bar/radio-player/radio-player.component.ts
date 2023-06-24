@@ -7,6 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./radio-player.component.css']
 })
 export class RadioPlayerComponent {
+  streamLink: string = 'https://classicalking.streamguys1.com/king-fm-aac-128k';
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngAfterViewInit(): void {
