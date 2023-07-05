@@ -1,44 +1,46 @@
-<div class="overflow-x-hidden">
-  <table class="border mx-auto text-xs sm:text-sm md:text-base">
+<div class="flex justify-center overflow-x-hidden pt-20">
+  <table class="border text-xs sm:text-sm md:text-base">
     <thead>
       <tr class="text-center">
-        <th class="border-r sm:p-1">Name</th>
+        <th class="border-r sm:p-1">Curator</th>
         <th class="border-r sm:p-1">New Movies</th>
         <th class="border-r sm:p-1">Last Update</th>
         <th class="border-r sm:p-1">Reviews</th>
-        <th class="border-r sm:p-1">Status</th>
+        <th class="border-r sm:p-1">Total Movies</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let curator of curators" class="content-center">
         <td
-          class="flex justify-start items-center border-t p-2"
+          class="flex justify-start items-center border-t p-1 sm:p-2"
           [id]="'curator_' + curator.id"
         >
           <a
-            class="flex justify-center items-center font-semibold hover:underline"
+            class="flex flex-col justify-start font-medium sm:jusify-center sm:flex-row hover:underline"
             target="_blank"
             [href]="curator.url"
-            ><div class="curator-logo min-w-fit">
+            ><div class="flex justify-start curator-logo min-w-fit pl-1 py-1">
               <img
-                class="w-5 h-5"
+                class="w-3 h-3 sm:w-5 sm:h-5"
                 [src]="'assets/' + curator.alias + '-icon.png'"
                 [alt]="curator.name"
               />
             </div>
-            <p class="pl-2">{{ curator.name }}</p>
+            <p class="pl-1 py-1">{{ curator.name }}</p>
           </a>
         </td>
-        <td class="border-l border-t p-2">
+        <td class="border-l border-t p-1 sm:p-2">
           <ul>
             <li *ngFor="let movie of curator.new_movies">{{ movie }}</li>
           </ul>
         </td>
-        <td class="border-l border-t p-2">{{ curator.last_update }}</td>
-        <td class="border-l border-t p-2">
+        <td class="border-l border-t p-1 sm:p-2">{{ curator.last_update }}</td>
+        <td class="border-l border-t p-1 sm:p-2">
           {{ curator.reviews ? "Yes" : "No" }}
         </td>
-        <td class="border-l border-t p-2">{{ curator.status }}</td>
+        <td class="border-l border-t p-1 sm:p-2">
+          {{ curator.total_movies ? curator.total_movies : "?" }}
+        </td>
       </tr>
     </tbody>
   </table>

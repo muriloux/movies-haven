@@ -11,12 +11,10 @@ import { RadioPlayerComponent } from './components/nav-bar/radio-player/radio-pl
     AppComponent,
     CuratorsTableComponent,
     NavBarComponent,
-    RadioPlayerComponent
+    RadioPlayerComponent,
   ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' })
-  ],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' })],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
